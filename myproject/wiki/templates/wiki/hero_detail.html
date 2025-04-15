@@ -1,0 +1,14 @@
+{% extends 'wiki/base.html' %}
+
+{% block content %}
+<div class="card">
+    <img src="{{ hero.image.url }}" class="card-img-top" alt="{{ hero.name }}">
+    <div class="card-body">
+        <h1>{{ hero.name }}</h1>
+        <p><b>Атрибут:</b> {{ hero.get_attribute_display }}</p>
+        <p><b>Роль:</b> {{ hero.get_role_display }}</p>
+        <p class="card-text">{{ hero.lore }}</p>
+        <a href="{% url 'hero_list' %}" class="btn btn-secondary">Назад</a>
+    </div>
+</div>
+{% endblock %}

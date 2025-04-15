@@ -1,0 +1,22 @@
+{% extends 'wiki/base.html' %}
+
+{% block content %}
+<h1>Герои Dota 2</h1>
+<div class="row">
+    {% for hero in heroes %}
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <img src="{{ hero.image.url }}" class="card-img-top" alt="{{ hero.name }}">
+            <div class="card-body">
+                <h5 class="card-title">{{ hero.name }}</h5>
+                <p class="card-text">
+                    <b>Атрибут:</b> {{ hero.get_attribute_display }}<br>
+                    <b>Роль:</b> {{ hero.get_role_display }}
+                </p>
+                <a href="{% url 'hero_detail' hero.id %}" class="btn btn-primary">Подробнее</a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
